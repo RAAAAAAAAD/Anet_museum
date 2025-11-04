@@ -1,0 +1,12 @@
+<header class="site-header">
+<nav>
+<a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+<a routerLink="/paintings" routerLinkActive="active">Paintings</a>
+</nav>
+</header>
+<main class="container">
+<router-outlet></router-outlet>
+</main>
+<footer class="site-footer">
+<p>© Anet Museum</p>
+</footer>
