@@ -1,4 +1,49 @@
-.site-header, .site-footer { background: #111; color: #fff; padding: 1rem 1.25rem; }
-.site-header a { color: #fff; margin-right: 1rem; text-decoration: none; }
-.site-header a.active { text-decoration: underline; }
-.container { max-width: 1000px; margin: 1.5rem auto; padding: 0 1rem; }
+:root{
+  --bg: #353e82;           /* sfondo principale */
+  --frame: #26c6da;        /* bordo o alone */
+  --text: #e6ecff;         /* testo */
+  --muted: #aeb7ff;        /* testo secondario */
+  --logo: #21c1d6;         /* logo */
+}
+
+/* ====== Header ====== */
+.site-header{
+  background: var(--bg);
+  box-shadow: inset 0 0 0 3px var(--frame);
+}
+
+.logo-script{
+  font-family: "Pacifico", cursive;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--logo);
+  letter-spacing: 1px;
+  text-shadow: 0 2px 0 rgba(0,0,0,.08);
+  position: relative;
+}
+.logo-heart{
+  position: absolute;
+  top: -0.4em;
+  right: -0.5em;
+  font-size: 0.5em;
+}
+
+/* ====== Main ====== */
+main.container{
+  color: var(--text);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+/* ====== Footer ====== */
+.site-footer{
+  background: var(--bg);
+  border-top: 2px solid var(--frame);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.site-footer p{
+  margin: 0;
+}
+
+/* Facoltativo: font eleganti */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Pacifico&display=swap');

@@ -1,12 +1,11 @@
-<header class="site-header">
-<nav>
-<a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
-<a routerLink="/paintings" routerLinkActive="active">Paintings</a>
-</nav>
+<header class="site-header text-center py-4">
+  <img src="logo.png" alt="Aneta logo" class="site-logo">
 </header>
-<main class="container">
-<router-outlet></router-outlet>
+
+<main class="container my-5">
+  <router-outlet></router-outlet>
 </main>
-<footer class="site-footer">
-<p>© Anet Museum</p>
+
+<footer class="site-footer text-center py-3">
+  <p class="mb-0">© Anet Museum</p>
 </footer>
