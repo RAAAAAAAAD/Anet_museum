@@ -1,15 +1,18 @@
-    <h2>Paintings</h2>
+
+<div class="paintings-container">
+  <div class="paintings-header">
     <input type="search" [(ngModel)]="term" placeholder="Search by title or artist…" aria-label="Search"/>
-
-
-    <div class="grid">
+  </div>
+  
+  <div class="grid">
     @for (p of paintings; track p.id) {
-    <article class="card" [routerLink]="['/paintings', p.id]" tabindex="0">
-    <img [src]="p.imageUrl" [alt]="p.title" loading="lazy"/>
-    <div class="card-body">
-    <h3>{{ p.title }}</h3>
-    <p class="meta">{{ p.artist }} <span *ngIf="p.year">• {{ p.year }}</span></p>
-    </div>
-    </article>
+      <article class="card" [routerLink]="['/paintings', p.id]" tabindex="0">
+        <img [src]="p.imageUrl" [alt]="p.title" loading="lazy"/>
+        <div class="card-body">
+          <h3>{{ p.title }}</h3>
+          <p class="meta">{{ p.artist }} <span *ngIf="p.year">• {{ p.year }}</span></p>
+        </div>
+      </article>
     }
-    </div>
+  </div>
+</div>
