@@ -1,87 +1,104 @@
-/* ====== PALETTE (cambia questi valori) ======
---bg:            colore di sfondo principale
---frame:         bordo/alone esterno
---text:          testo principale
---muted:         sottotitoli/discreti (se servono)
---cta-bg:        sfondo del bottone
---cta-text:      testo del bottone
---cta-bg-hover:  hover del bottone
---logo:          colore del logo “Aneta”
-================================================ */
-:root{
-  --bg: #353e82;           /* sfondo pagina */
-  --frame: #26c6da;        /* bordo/alone */
-  --text: #e6ecff;         /* testo grande */
-  --muted: #aeb7ff;        /* testo secondario */
-  --cta-bg: #4a57b3;       /* bottone */
-  --cta-text: #eaf0ff;     /* bottone testo */
-  --cta-bg-hover: #5a67c9; /* hover bottone */
-  --logo: #21c1d6;         /* logo “Aneta” */
+:host {
+  display: block;
 }
 
-/* Cornice a tutta pagina */
-.hero-frame{
-  min-height: 100vh;
-  background: var(--bg);
-  box-shadow: inset 0 0 0 3px var(--frame);
+.home-card {
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+  position: relative;
+  overflow: hidden;
 }
 
-/* Logo “Aneta” in stile corsivo con cuoricino */
-.logo-script{
-  font-family: "Pacifico", cursive;
-  /* Se non vuoi importare font esterni, rimuovi la riga sopra:
-     userà 'cursive' di sistema */
-  font-size: clamp(2.2rem, 4.2vw, 3.5rem);
+.home-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.18), transparent 55%),
+    radial-gradient(circle at 80% 80%, rgba(34, 194, 215, 0.25), transparent 60%);
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.home-logo {
+  font-family: 'Pacifico', 'Brush Script MT', 'Lucida Handwriting', cursive;
+  font-size: clamp(2.6rem, 6vw, 4rem);
   line-height: 1;
-  color: var(--logo);
-  letter-spacing: 1px;
-  text-shadow: 0 2px 0 rgba(0,0,0,.08);
+  color: var(--page-accent);
+  letter-spacing: 0.05em;
+  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+  position: relative;
+  align-self: flex-start;
 }
-.logo-heart{
+
+.logo-heart {
   position: absolute;
   top: -0.35em;
-  right: -0.6em;
+  right: -0.65em;
   font-size: 0.45em;
 }
 
-/* Titolo principale */
-.display-title{
-  font-family: "Cormorant Garamond", serif; /* opzionale; vedi nota font */
-  font-weight: 500;
-  color: var(--text);
-  font-size: clamp(1.8rem, 4.5vw, 2.6rem);
-  letter-spacing: .5px;
-  text-shadow: 0 1px 0 rgba(0,0,0,.12);
+.home-content {
+  display: grid;
+  gap: 1.25rem;
+  position: relative;
+  z-index: 1;
 }
 
-/* Bottone CTA */
-.btn-cta{
-  background: var(--cta-bg);
-  color: var(--cta-text);
-  border: 0;
-  backdrop-filter: saturate(120%) blur(0.5px);
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,.08),
-    0 8px 20px rgba(0,0,0,.18);
-  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+.home-subtitle {
+  margin: 0;
+  max-width: 34ch;
+  font-size: clamp(1rem, 2.4vw, 1.2rem);
+  line-height: 1.7;
+  color: color-mix(in srgb, var(--page-text) 80%, #ffffff 20%);
 }
+
+.home-cta {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  z-index: 1;
+}
+
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2.75rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #21c1d6, #62def5);
+  color: #12303b;
+  border: none;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  box-shadow: 0 12px 30px rgba(11, 67, 80, 0.35);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
 .btn-cta:hover,
-.btn-cta:focus{
-  background: var(--cta-bg-hover);
-  color: var(--cta-text);
-  transform: translateY(-1px);
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,.1),
-    0 12px 26px rgba(0,0,0,.22);
+.btn-cta:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(11, 67, 80, 0.4);
 }
 
-/* Spaziature responsive della hero */
-.hero-copy{
-  margin-top: clamp(2rem, 12vh, 7rem);
+.btn-cta:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 3px;
 }
 
-/* Accessibilità focus */
-.btn-cta:focus{
-  outline: 3px solid color-mix(in srgb, var(--frame) 70%, transparent);
-  outline-offset: 2px;
+@media (max-width: 640px) {
+  .home-card {
+    text-align: center;
+  }
+
+  .home-content {
+    justify-items: center;
+  }
+
+  .home-subtitle {
+    max-width: none;
+  }
+
+  .home-cta {
+    justify-content: center;
+  }
 }

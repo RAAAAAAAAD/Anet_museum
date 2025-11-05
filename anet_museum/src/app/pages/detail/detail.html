@@ -1,14 +1,34 @@
 
-<button class="back" (click)="goBack()">← Back to paintings</button>
-<div class="detail">
-@defer (on viewport) {
-<img [src]="painting?.imageUrl" [alt]="painting?.title"/>
-} @placeholder {
-<div class="img-skeleton" aria-hidden="true"></div>
-}
-<div class="info">
-<h2>{{ painting?.title }}</h2>
-<p class="meta">{{ painting?.artist }}<span> • {{ painting?.year }}</span></p>
-<p class="desc">{{ painting?.description }}</p>
-</div>
+<div class="page-wrapper">
+  <section class="page-card detail-card" aria-labelledby="detail-title">
+    <header class="detail-header">
+      <button class="back" type="button" (click)="goBack()">← Torna alle opere</button>
+      <p class="pill">Focus on feeling</p>
+    </header>
+
+    <div class="detail-body">
+      <div class="artwork" aria-live="polite" aria-busy="false">
+        @defer (on viewport) {
+          <img [src]="painting?.imageUrl" [alt]="painting?.title" />
+        } @placeholder {
+          <div class="img-skeleton" aria-hidden="true"></div>
+        }
+      </div>
+
+      <div class="info">
+        <h2 id="detail-title" class="page-title">{{ painting?.title }}</h2>
+        <p class="meta">
+          {{ painting?.artist }}
+          @if (painting?.year) {
+            <span> • {{ painting?.year }}</span>
+          }
+        </p>
+        <p class="desc">{{ painting?.description }}</p>
+      </div>
+    </div>
+
+    <div class="detail-footer">
+      <button class="cta" type="button" (click)="goBack()">Back</button>
+    </div>
+  </section>
 </div>

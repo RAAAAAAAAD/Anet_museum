@@ -1,15 +1,38 @@
-    <h2>Paintings</h2>
-    <input type="search" [(ngModel)]="term" placeholder="Search by title or artist…" aria-label="Search"/>
+<div class="page-wrapper">
+  <section class="page-card paintings-card" aria-labelledby="paintings-title">
+    <header class="paintings-header">
+      <div>
+        <p class="pill">Palette &amp; portraits</p>
+        <h2 id="paintings-title" class="page-title">Opere</h2>
+        <p class="subtitle">Sfoglia le illustrazioni e trova quella che ti emoziona di più.</p>
+      </div>
+      <label class="search-field">
+        <span class="visually-hidden">Cerca tra le opere</span>
+        <input
+          type="search"
+          [(ngModel)]="term"
+          placeholder="Cerca per titolo o artista…"
+        />
+      </label>
+    </header>
 
-
-    <div class="grid">
-    @for (p of paintings; track p.id) {
-    <article class="card" [routerLink]="['/paintings', p.id]" tabindex="0">
-    <img [src]="p.imageUrl" [alt]="p.title" loading="lazy"/>
-    <div class="card-body">
-    <h3>{{ p.title }}</h3>
-    <p class="meta">{{ p.artist }} <span *ngIf="p.year">• {{ p.year }}</span></p>
+    <div class="paintings-grid" role="list">
+      @for (p of paintings; track p.id) {
+        <article class="painting-card" role="listitem" [routerLink]="['/paintings', p.id]" tabindex="0">
+          <div class="thumb">
+            <img [src]="p.imageUrl" [alt]="p.title" loading="lazy" />
+          </div>
+          <div class="details">
+            <h3 class="title">{{ p.title }}</h3>
+            <p class="meta">
+              {{ p.artist }}
+              @if (p.year) {
+                <span>• {{ p.year }}</span>
+              }
+            </p>
+          </div>
+        </article>
+      }
     </div>
-    </article>
-    }
-    </div>
+  </section>
+</div>
