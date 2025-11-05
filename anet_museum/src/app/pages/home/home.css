@@ -8,52 +8,29 @@
 --cta-bg-hover:  hover del bottone
 --logo:          colore del logo “Aneta”
 ================================================ */
-:root{
-  --bg: #353e82;           /* sfondo pagina */
-  --frame: #26c6da;        /* bordo/alone */
+:root{        
+  --frame: #8fa4a7;        /* bordo/alone */
   --text: #e6ecff;         /* testo grande */
   --muted: #aeb7ff;        /* testo secondario */
   --cta-bg: #4a57b3;       /* bottone */
   --cta-text: #eaf0ff;     /* bottone testo */
-  --cta-bg-hover: #5a67c9; /* hover bottone */
-  --logo: #21c1d6;         /* logo “Aneta” */
-}
-
-/* Cornice a tutta pagina */
-.hero-frame{
-  min-height: 100vh;
-  background: var(--bg);
-  box-shadow: inset 0 0 0 3px var(--frame);
-}
-
-/* Logo “Aneta” in stile corsivo con cuoricino */
-.logo-script{
-  font-family: "Pacifico", cursive;
-  /* Se non vuoi importare font esterni, rimuovi la riga sopra:
-     userà 'cursive' di sistema */
-  font-size: clamp(2.2rem, 4.2vw, 3.5rem);
-  line-height: 1;
-  color: var(--logo);
-  letter-spacing: 1px;
-  text-shadow: 0 2px 0 rgba(0,0,0,.08);
-}
-.logo-heart{
-  position: absolute;
-  top: -0.35em;
-  right: -0.6em;
-  font-size: 0.45em;
+  --cta-bg-hover: #5a67c9; /* hover bottone */  
 }
 
 /* Titolo principale */
 .display-title{
-  font-family: "Cormorant Garamond", serif; /* opzionale; vedi nota font */
-  font-weight: 500;
+  font-family: "Island Moments", cursive; /* opzionale; vedi nota font */
+  font-weight: 700;
   color: var(--text);
-  font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
   letter-spacing: .5px;
   text-shadow: 0 1px 0 rgba(0,0,0,.12);
 }
-
+.fonts {
+  font-family: 'Island Moments', cursive;
+  font-weight: 1000;
+  font-size: 1.25rem;
+}
 /* Bottone CTA */
 .btn-cta{
   background: var(--cta-bg);

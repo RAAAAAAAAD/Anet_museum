@@ -1,5 +1,5 @@
 :root{
-  --bg: #353e82;           /* sfondo principale */
+  --bg: #50589C;           /* sfondo principale */
   --frame: #26c6da;        /* bordo o alone */
   --text: #e6ecff;         /* testo */
   --muted: #aeb7ff;        /* testo secondario */
@@ -12,21 +12,12 @@
   box-shadow: inset 0 0 0 3px var(--frame);
 }
 
-.logo-script{
-  font-family: "Pacifico", cursive;
-  font-size: clamp(2rem, 4vw, 3rem);
-  color: var(--logo);
-  letter-spacing: 1px;
-  text-shadow: 0 2px 0 rgba(0,0,0,.08);
-  position: relative;
+.site-logo {
+  width: clamp(50px, 30vw, 100px);  /* Min 150px, Max 300px */
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
-.logo-heart{
-  position: absolute;
-  top: -0.4em;
-  right: -0.5em;
-  font-size: 0.5em;
-}
-
 /* ====== Main ====== */
 main.container{
   color: var(--text);
@@ -42,7 +33,7 @@ main.container{
   font-size: 0.9rem;
 }
 .site-footer p{
-  margin: 0;
+  margin: 200px 0 0 0;
 }
 
 /* Facoltativo: font eleganti */
