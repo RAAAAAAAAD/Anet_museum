@@ -9,7 +9,7 @@ import { Painting } from '../../models/painting-guard';
 selector: 'app-paintings',
 standalone: true,
 imports: [FormsModule, RouterLink],
-templateUrl: './paintings.html',
+templateUrl:'./paintings.html',
 styleUrls: ['./paintings.css'],
 })
 export class PaintingsComponent {

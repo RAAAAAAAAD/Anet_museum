@@ -1,14 +1,23 @@
-
-<button class="back" (click)="goBack()">← Back to paintings</button>
-<div class="detail">
-@defer (on viewport) {
-<img [src]="painting?.imageUrl" [alt]="painting?.title"/>
-} @placeholder {
-<div class="img-skeleton" aria-hidden="true"></div>
-}
-<div class="info">
-<h2>{{ painting?.title }}</h2>
-<p class="meta">{{ painting?.artist }}<span> • {{ painting?.year }}</span></p>
-<p class="desc">{{ painting?.description }}</p>
-</div>
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Island+Moments&display=swap" rel="stylesheet">
+</head>
+<div class="detail-container">
+  
+  
+  <div class="detail">
+    @defer (on viewport) {
+      <img [src]="painting?.imageUrl" [alt]="painting?.title"/>
+    } @placeholder {
+      <div class="img-skeleton" aria-hidden="true"></div>
+    }
+    
+    <div class="info">
+      <h2>{{ painting?.title }}</h2>
+      <p class="meta">{{ painting?.artist }}<span *ngIf="painting?.year"> • {{ painting?.year }}</span></p>
+      <p class="desc">{{ painting?.description }}</p>
+      <button class="back" (click)="goBack()">← Back</button>
+    </div>
+  </div>
 </div>
